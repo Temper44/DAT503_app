@@ -8,17 +8,34 @@ st.write("A tiny app to verify your deployment pipeline. Choose a demo below.")
 
 # Show timestamp created by the GitHub Actions test workflow (if present)
 import os, json
-time_path = os.path.join("resultTime.json")
-if os.path.exists(time_path):
-    try:
-        with open(time_path, "r", encoding="utf-8") as f:
-            payload = json.load(f)
-            ts = payload.get("time")
-            if ts:
-                st.markdown(f"**Latest workflow run time:** {ts}")
-    except Exception:
-        # ignore parse errors
-        pass
+OWNER = "MatEbner"   # your GitHub username
+REPO  = "DAT503_app" # your repo name
+RAW_URL = f"https://raw.githubusercontent.com/{OWNER}/{REPO}/results/resultTime.json"
+
+ts = None
+try:
+    r = requests.get(RAW_URL, timeout=5)
+    if r.status_code == 200:
+        payload = r.json()
+        ts = payload.get("time")
+except Exception:
+    ts = None
+
+if ts:
+    st.markdown(f"**Latest workflow run time:** {ts}")
+else:
+    st.info("No timestamp available from the results branch.")
+# time_path = os.path.join("resultTime.json")
+# if os.path.exists(time_path):
+#     try:
+#         with open(time_path, "r", encoding="utf-8") as f:
+#             payload = json.load(f)
+#             ts = payload.get("time")
+#             if ts:
+#                 st.markdown(f"**Latest workflow run time:** {ts}")
+#     except Exception:
+#         # ignore parse errors
+#         pass
 
 option = st.selectbox("Choose demo", ["Line chart", "Dataframe", "Upload CSV", "Results (results.json)", "Price: V (Visa)"])
 
