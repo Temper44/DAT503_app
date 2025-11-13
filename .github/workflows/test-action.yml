@@ -1,10 +1,12 @@
 name: Test action (create resultTime.json)
 
 on:
+  push:
+    branches:
+      - main
   schedule:
-    # GitHub cron uses UTC and minimum 1 minute granularity
-    - cron: "*/1 * * * *" # every minute (GitHub does not support <1min)
-  workflow_dispatch: # allow manual runs
+    - cron: "*/1 * * * *"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -28,12 +30,12 @@ jobs:
         run: |
           node testAction.js
 
-      - name: Commit resultTime.json back to repo
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add resultTime.json || true
-          git commit -m "chore: update resultTime.json from workflow [skip ci]" || echo "no changes to commit"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          - name: Rename artifact with run id
+            run: |
+              mv resultTime.json resultTime-${{ github.run_id }}.json
+
+          - name: Upload result artifact
+            uses: actions/upload-artifact@v4
+            with:
+              name: resultTime-${{ github.run_id }}
+              path: resultTime-${{ github.run_id }}.json
