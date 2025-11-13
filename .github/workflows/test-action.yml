@@ -36,6 +36,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add resultTime.json || true
           git commit -m "update resultTime.json from workflow [skip ci]" || echo "no changes to commit"
-          git push
+           git push origin HEAD:results
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
