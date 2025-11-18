@@ -57,7 +57,7 @@ else:
 #         # ignore parse errors
 #         pass
 
-option = st.selectbox("Choose demo", ["Line chart", "Dataframe", "Upload CSV", "Results (results.json)", "Price: V (Visa)"])
+option = st.selectbox("Choose demo", ["Line chart", "Dataframe", "Upload CSV", "Results (results_stock_prediction.json)", "Price: V (Visa)"])
 
 if option == "Line chart":
     st.header("Random line chart")
@@ -70,15 +70,15 @@ elif option == "Dataframe":
     st.dataframe(df)
     st.bar_chart(df.set_index("x"))
 
-elif option == "Results (results.json)":
-    st.header("Model results (results.json)")
+elif option == "Results (results_stock_prediction.json)":
+    st.header("Model results (results_stock_prediction.json)")
     import os
-    path = os.path.join("results.json")
+    path = os.path.join("results_stock_prediction.json")
     if os.path.exists(path):
         try:
             df = pd.read_json(path)
         except Exception as e:
-            st.error(f"Failed to read results.json: {e}")
+            st.error(f"Failed to read results_stock_prediction.json: {e}")
         else:
             # Convert epoch-ms to datetime and format
             if "Date" in df.columns:
@@ -89,7 +89,7 @@ elif option == "Results (results.json)":
                     pass
 
             # Allow filtering
-            st.write(f"Loaded {len(df)} rows from `results.json`.")
+            st.write(f"Loaded {len(df)} rows from `results_stock_prediction.json`.")
             cols = df.columns.tolist()
             with st.sidebar.expander("Results filters"):
                 signals = df["Signal"].unique().tolist() if "Signal" in df.columns else []
@@ -116,12 +116,12 @@ elif option == "Results (results.json)":
             csv = filtered.to_csv(index=False).encode("utf-8")
             st.download_button("Download filtered results as CSV", data=csv, file_name="results_filtered.csv", mime="text/csv")
     else:
-        st.info("No `results.json` file found in the project folder. Add it to the repo or use the Upload CSV option to display data.")
+        st.info("No `results_stock_prediction.json` file found in the project folder. Add it to the repo or use the Upload CSV option to display data.")
 
 elif option == "Price: V (Visa)":
     st.header("Visa (V) — Price chart")
     import os
-    csv_path = os.path.join("prices", "V_US.csv")
+    csv_path = os.path.join("data/prices", "V_US.csv")
     if os.path.exists(csv_path):
         try:
             prices = pd.read_csv(csv_path)

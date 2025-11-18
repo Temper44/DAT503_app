@@ -1,4 +1,4 @@
-name: Test action (create resultTime.json)
+name: CronJob Action (create results_stock_prediction.json in results branch)
 
 on:
   push:
