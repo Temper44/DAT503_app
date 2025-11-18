@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "0 13 * * *"
+    - cron: "*/10 * * * *"
   workflow_dispatch:
 concurrency:
   group: results-update
@@ -24,23 +24,28 @@ jobs:
         with:
           persist-credentials: true
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          node-version: "18"
+          python-version: "3.11"
 
-      - name: Run testAction.js
+      - name: Install dependencies
         run: |
-          node testAction.js
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-      - name: Commit resultTime.json to orphan results branch
+      - name: Run up_down_evalutation_all_v0.11.py
+        run: |
+          python up_down_evalutation_all_v0.11.py
+
+      - name: Commit results_stock_prediction.json to orphan results branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout --orphan results
           git rm -rf .
-          git add resultTime.json
-          git commit -m "update resultTime.json from workflow [skip ci]" || echo "no changes to commit"
+          git add results_stock_prediction.json
+          git commit -m "update results_stock_prediction.json from workflow [skip ci]" || echo "no changes to commit"
           git push origin results --force
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

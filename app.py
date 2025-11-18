@@ -11,22 +11,41 @@ st.write("A tiny app to verify your deployment pipeline. Choose a demo below.")
 import os, json
 OWNER = "MatEbner"   # your GitHub username
 REPO  = "DAT503_app" # your repo name
-RAW_URL = f"https://raw.githubusercontent.com/{OWNER}/{REPO}/results/resultTime.json"
+RAW_URL = f"https://raw.githubusercontent.com/{OWNER}/{REPO}/results/results_stock_prediction.json"
 
-ts = None
+# Load and display stock prediction results from GitHub (RAW_URL)
+st.header("Latest Stock Model Results (from GitHub)")
+df_results = None
 try:
     r = requests.get(RAW_URL, timeout=5)
     if r.status_code == 200:
+        # Try to load as list of dicts (array of results)
         payload = r.json()
-        ts = payload.get("time")
-except Exception:
-    ts = None
+        if isinstance(payload, list):
+            import pandas as pd
+            df_results = pd.DataFrame(payload)
+        elif isinstance(payload, dict) and "results" in payload:
+            import pandas as pd
+            df_results = pd.DataFrame(payload["results"])
+except Exception as e:
+    st.info(f"Could not load results from GitHub: {e}")
 
-if ts:
-    st.markdown(f"**Latest workflow run time:** {ts}")
+if df_results is not None and not df_results.empty:
+    # Convert epoch-ms to datetime for Date column
+    if "Date" in df_results.columns:
+        try:
+            df_results["Date"] = pd.to_datetime(df_results["Date"], unit="ms")
+        except Exception:
+            pass
+    st.dataframe(df_results)
+    # Show a summary: top 5 by ProbUp
+    if "ProbUp" in df_results.columns:
+        st.subheader("Top 5 Stocks by ProbUp")
+        st.table(df_results.sort_values("ProbUp", ascending=False).head(5)[["Ticker", "Date", "ProbUp", "Signal"]])
 else:
-    st.info("No timestamp available from the results branch.")
-# time_path = os.path.join("resultTime.json")
+    st.info("No remote stock prediction results found. Run the model and push results to GitHub.")
+
+# time_path = os.path.join("results_stock_prediction.json")
 # if os.path.exists(time_path):
 #     try:
 #         with open(time_path, "r", encoding="utf-8") as f:
