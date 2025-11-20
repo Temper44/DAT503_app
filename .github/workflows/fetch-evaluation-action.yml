@@ -72,6 +72,8 @@ jobs:
           git status
           git diff
           ls -l
+      - name: Pull latest changes from main
+        run: git pull --rebase origin main
       - name: Commit results_stock_prediction.json to folder
         run: |
           git config user.name "github-actions[bot]"
