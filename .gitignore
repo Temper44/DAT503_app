@@ -1,7 +1,3 @@
-# reuslts_stock_prediction.json
-# Ignore all files in data/prices/
-data/prices/
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
