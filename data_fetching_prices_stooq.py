@@ -47,7 +47,7 @@ SYMBOLS_STOOQ: Dict[str, str] = {
     "NVIDIA Corporation": "NVDA.US",
     "Amazon.com, Inc.": "AMZN.US",
     "Meta Platforms, Inc.": "META.US",
-    "TSMC – Taiwan Semiconductor Manufacturing Company": "TSM.US",  # ADR
+    "TSMC – Taiwan Semiconductor Manufacturing Company": "TSM.US", 
     "Berkshire Hathaway Inc.": "BRK-A.US",
     "Tesla, Inc.": "TSLA.US",
     "Eli Lilly and Company": "LLY.US",
@@ -57,7 +57,7 @@ SYMBOLS_STOOQ: Dict[str, str] = {
     "Johnson & Johnson": "JNJ.US",
     "Samsung Electronics Co., Ltd.": "SMSN.UK",
     "Home Depot, Inc.": "HD.US",
-    "ASML Holding N.V.": "ASML.US",  # ADR (Alternativ: ASML.AS)
+    "ASML Holding N.V.": "ASML.US", 
     "Alibaba Group Holding Ltd.": "BABA.US",
     "Bank of America Corporation": "BAC.US",
     "Advanced Micro Devices, Inc.": "AMD.US",
@@ -73,7 +73,6 @@ SYMBOLS_STOOQ: Dict[str, str] = {
     "Nestlé S.A.": "0QR4.UK",
     "Wells Fargo & Company": "WFC.US",
     "AstraZeneca PLC": "AZN.US",
-    #"Kweichow Moutai Co., Ltd.": "600519.SS",  
     "T‑Mobile US, Inc.": "TMUS.US",
     "Novartis AG": "NVS.US",
     "Morgan Stanley": "MS.US",
@@ -82,7 +81,6 @@ SYMBOLS_STOOQ: Dict[str, str] = {
     "Philip Morris International Inc.": "PM.US",
     "Caterpillar Inc.": "CAT.US",
     "China Mobile Limited": "941.HK",
-    #"International Holding Company PJSC": "IHC.AE", 
     "RTX Corporation": "RTX.US",
     "Novo Nordisk A/S": "NVO.US",
     "SK Hynix Inc.": "HY9H.DEF",

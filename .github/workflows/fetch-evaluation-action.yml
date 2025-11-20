@@ -33,6 +33,11 @@ jobs:
       - name: Run data_fetching_prices_stooq.py
         run: |
           python data_fetching_prices_stooq.py
+      - name: Debug file changes
+        run: |
+          git status
+          git diff
+          ls -l data/prices
       - name: Commit new/updated price CSVs to prices folder
         run: |
           git config user.name "github-actions[bot]"
@@ -62,6 +67,11 @@ jobs:
       - name: Run up_down_evalutation_all_v0.11.py
         run: |
           python up_down_evalutation_all_v0.11.py
+      - name: Debug file changes
+        run: |
+          git status
+          git diff
+          ls -l
       - name: Commit results_stock_prediction.json to folder
         run: |
           git config user.name "github-actions[bot]"

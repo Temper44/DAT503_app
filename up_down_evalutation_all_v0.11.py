@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from pathlib import Path # Pfad Angabe (Linux/Windows)
+from pathlib import Path
 from glob import glob
 from lightgbm import LGBMClassifier # ML-Modell
 from sklearn.metrics import ( # ML-Modell Metriken
@@ -54,39 +54,29 @@ TICKER_MAP = {
     "MA": "MA",
     "XOM": "XOM",
     "JNJ": "JNJ",
-    #"SMSN": "005930.KS",
     "HD": "HD",
     "ASML": "ASML",
     "BABA": "BABA",
     "BAC": "BAC",
     "AMD": "AMD",
-    #"0HAU": "MC.PA",
     "PG": "PG",
     "UNH": "UNH",
     "SAP": "SAP.DE",
     "CVX": "CVX",
     "KO": "KO",
-    #"0QOK": "ROG.SW",
     "CSCO": "CSCO",
     "TM": "TM",
-    #"0QR4": "NESN.SW",
     "WFC": "WFC",
     "AZN": "AZN",
     "TMUS": "TMUS",
     "NVS": "NVS",
     "MS": "MS",
-    #"0NZM": "OR.PA",
     "CRM": "CRM",
     "PM": "PM",
     "CAT": "CAT",
-    #"941": "0941.HK",
     "RTX": "RTX",
     "NVO": "NVO",
-    #"HY9H": "000660.KS",
-    #"HSBC": "HSBC",
-    #"857": "0857.HK",
-    #"MU": "MU",
-    #"ABT": "ABT",
+
 }
 
 
@@ -150,10 +140,6 @@ def load_fundamentals_for_ticker(fund_base: str, fund_dir: Path) -> pd.DataFrame
         for col in df.columns:
             if col not in ["fiscalDateEnding", "reportedCurrency", "period"]:
                 df[col] = pd.to_numeric(df[col], errors="coerce")
-
-    # Kopieren der Datasets
-    #bal_small = bal.copy()
-    #inc_small = inc.copy()
 
     # Überprüfen, ob die Spalten exisiteren, sonst NaN
     def safe_col(df, col):
@@ -333,7 +319,7 @@ def evaluate_model(
         strat_df["proba_up"] = y_pred_proba
         strat_df["signal_long"] = (strat_df["proba_up"] > proba_threshold).astype(int)
 
-        # Pro Ticker Positions-Flag über <horizon_days> Tage erzeugen-
+        # Pro Ticker Positions-Flag über <horizon_days> Tage erzeugen
         def build_position_per_ticker(g):
             sig = g["signal_long"].to_numpy()
             n = len(g)
@@ -343,17 +329,18 @@ def evaluate_model(
 
             for i in range(n):
                 if remaining > 0:
-                    # wir sind noch in einem laufenden Trade
+                    # aktueller Trade aktiv
                     pos[i] = 1
                     remaining -= 1
                 elif sig[i] == 1:
-                    # neues Einstiegssignal -> neue Position eröffnen
+                    # neues Einstiegssignal, d.h. neue Position eröffnen
                     pos[i] = 1
                     remaining = horizon_days - 1  # heute inklusive, daher -1
 
             g["position"] = pos
             return g
 
+        # Anwenden der oben definierten Funktion
         strat_df = strat_df.groupby("Ticker", group_keys=False).apply(build_position_per_ticker)
 
         # Tages-Strategie-Return mit Return_1d
@@ -363,10 +350,11 @@ def evaluate_model(
         def equal_weight_daily(d):
             active = d["position"].sum()
             if active == 0:
-                return 0.0  # kein Trade aktiv -> 0% Tagesreturn
+                return 0.0  # kein Trade aktiv - 0% Tagesreturn
             # Durchschnitt der Returns der aktiven Positionen
             return d.loc[d["position"] == 1, "strategy_return_1d"].mean()
 
+        # Anwendung der oben genannten Funktion
         daily_return = strat_df.groupby("Date").apply(equal_weight_daily)
 
         # Equity-Kurve und Gesamtrendite
@@ -387,8 +375,8 @@ def evaluate_model(
         plt.tight_layout()
         plt.show()
     
-    elif VARIANTE ==2: #30 Tage und dann halten bis DOWN
-        # Mini Backtest Variante D
+    elif VARIANTE ==2: #Position so lange halten, wie Signal Long bleibt, aber mindestens horizon_days
+        # Mini Backtest Variante
         strat_df = df_test_full.copy()
 
         # Datum und Sortierung
@@ -399,9 +387,7 @@ def evaluate_model(
         strat_df["proba_up"] = y_pred_proba
         strat_df["signal_long"] = (strat_df["proba_up"] > proba_threshold).astype(int)
 
-        # Variante 2: Position so lange halten, wie Signal Long bleibt, aber mindestens horizon_days
-
-        def build_position_varD(g):
+        def build_position_var2(g):
             sig = g["signal_long"].to_numpy()
             n = len(g)
             pos = np.zeros(n, dtype=int)
@@ -411,38 +397,38 @@ def evaluate_model(
 
             for i in range(n):
                 if in_pos:
-                    # wir sind in einer offenen Position
+                    # aktiver Trade vorhanden
                     pos[i] = 1
                     if hold_days_remaining > 0:
                         hold_days_remaining -= 1
                     else:
-                        # Mindesthaltedauer ist vorbei, jetzt entscheidet nur noch das Signal
+                        # Mindesthaltedauer ist vorbei - Entscheidung über das Signal
                         if sig[i] == 0:
                             in_pos = False
-                            pos[i] = 0  # ab heute wieder flat
+                            pos[i] = 0 
                 else:
-                    # aktuell flat, neues Signal kann Position öffnen
+                    # aktuell kein aktiver Trade - neues Signal kann Position öffnen
                     if sig[i] == 1:
                         in_pos = True
                         pos[i] = 1
-                        hold_days_remaining = horizon_days - 1  # heute inklusive
+                        hold_days_remaining = horizon_days - 1
 
             g["position_D"] = pos
             return g
 
-        strat_df = strat_df.groupby("Ticker", group_keys=False).apply(build_position_varD)
+        strat_df = strat_df.groupby("Ticker", group_keys=False).apply(build_position_var2, include_groups=False)
 
         # Tages Strategie Return aus Return_1d
         strat_df["strategy_return_1d_D"] = strat_df["position_D"] * strat_df["Return_1d"]
 
         # Gleichgewichtete tägliche Portfolio Rendite
-        def equal_weight_daily_D(d):
+        def equal_weight_daily_2(d):
             active = d["position_D"].sum()
             if active == 0:
                 return 0.0
             return d.loc[d["position_D"] == 1, "strategy_return_1d_D"].mean()
 
-        daily_return_D = strat_df.groupby("Date").apply(equal_weight_daily_D)
+        daily_return_D = strat_df.groupby("Date").apply(equal_weight_daily_2, include_groups=False)
 
         # Equity Kurve und Gesamtrendite
         equity_curve_D = (1 + daily_return_D).cumprod()
@@ -455,49 +441,6 @@ def evaluate_model(
         # Plot Strategie-Kapitalverlauf über Testzeitraum
         plt.figure(figsize=(8,4))
         plt.plot(equity_curve_D.index, equity_curve_D.values, label="Strategie-Kapitalverlauf")
-        plt.title("Backtest (Test-Periode, alle Ticker)")
-        plt.xlabel("Test-Index (zeitlich sortiert)")
-        plt.ylabel("Kumulierte Rendite")
-        plt.legend()
-        plt.tight_layout()
-        plt.show()
-
-    else: # Jeden Tag den 30 Tage ertrag rechnen -> FALSCH
-        # Mini-Backtest
-        # Kopieren des Test Datasets und Reset des Index
-        strat_df = df_test_full.copy().reset_index(drop=True)
-
-        # Speichern der Wahrscheinlichkeit, dass die Aktien steigen, in das Dataset
-        strat_df["proba_up"] = y_pred_proba
-        # Erstellen einer Empfehlung (für einen potenziellen Long), wenn die Wahrscheinlichkeit über einen gewissen Schwellwert ist
-        strat_df["signal_long"] = (strat_df["proba_up"] > proba_threshold).astype(int)
-
-        # Strategie-Return  - gibt den potenziellen Return für x Tage, wenn die Empfehlung für Long ist.
-        strat_df["strategy_return"] = strat_df["signal_long"] * strat_df["Return_fwd"]
-
-        # Pro Tag alle aktiven Long Signale gleichgewichtet mitteln:
-        daily_return = strat_df.groupby("Date")["strategy_return"].mean().fillna(0.0)
-
-        # Equity Kurve (tägliche kumulierte Performance)
-        equity_curve_daily = (1 + daily_return).cumprod() - 1
-
-        # Gesamtrendite der Strategie am Ende des Testzeitraums
-        total_return_daily = equity_curve_daily.iloc[-1] if len(equity_curve_daily) else np.nan
-
-        # Kapitalverlauf - kumulierte Renditen - Zeitreihe der kumulativen Performance - Equity-Kurve
-        #equity_curve = (1 + strat_df["strategy_return"].fillna(0)).cumprod() - 1
-        # Gesamtreturn am Ende des Testzeitraums
-        # Greift den letzten Wert der "euqity-curve"-Liste ab, wenn Daten vorhanden sind
-        #total_return_strategy = equity_curve.iloc[-1] if len(equity_curve) else np.nan
-
-        print(f"\n=== Up/Down-Schwellwert für potenzielle Long-Strategie: {proba_threshold}) ===")
-        # Achtung: ohne Gebühren, Slippage, etc.
-        #print(f"Mögliche Gesamtrendite bei Verwendung des Up/Down-Schwellwerts für den Testzeitraum (alle Aktien): {total_return_strategy:.2%}")
-        print(f"Mögliche Gesamtrendite bei Verwendung des Up/Down-Schwellwerts für den Testzeitraum {strat_df['Date'].dt.date.min()} bis {strat_df['Date'].dt.date.max()} (alle Aktien): {total_return_daily:.2%}")
-    
-        # Plot Strategie-Kapitalverlauf über Testzeitraum
-        plt.figure(figsize=(8,4))
-        plt.plot(equity_curve_daily.index, equity_curve_daily.values, label="Strategie-Kapitalverlauf")
         plt.title("Backtest (Test-Periode, alle Ticker)")
         plt.xlabel("Test-Index (zeitlich sortiert)")
         plt.ylabel("Kumulierte Rendite")
@@ -630,7 +573,7 @@ def main():
     # Modell mit Trainingsdaten füttern
     clf.fit(X_train, y_train)
 
-    # Aufruf der evaluate_model-Funktion - Modell-Metriken, Backtest
+    # Aufruf der evaluate_model-Funktion - Modell-Metriken, Mini-Backtest
     evaluate_model(
         clf,
         X_train, y_train,
