@@ -7,7 +7,7 @@
 Dieses Repository enthält die Daten und den Code für unser ESA 1 Projekt in DAT_503. Das Endergebnis ist ein Prototyp eines Analyse-Dashboards zur Entscheidungsunterstützung.
 
 Das Projekt besteht grob aus zwei Hauptteilen, das KI-Modell selbst und der Streamlit App.
-Es kann sowohl lokal gestartet werden als auch [deployed](https://dat503group40.streamlit.app/) angesehen werden. Die deployte Version ist ein automatisierter Workflow, der immer den aktuell verfügbaren Datenbestand nutzt. Bei der lokalen Ausführung sind folgende Schritte beachten:
+Es kann sowohl lokal gestartet werden als auch [deployed](https://share-analytic.streamlit.app/) angesehen werden. Die deployte Version ist ein automatisierter Workflow, der immer den aktuell verfügbaren Datenbestand nutzt. Bei der lokalen Ausführung sind folgende Schritte beachten:
 
 1. Das Fetch-Script `data_fetching_prices_stooq.py` ausführen, um die aktuellen Daten zu erhalten
 2. Das Modell-Script `up_down_evalutation_all_v0.11.py` ausführen, um neueste Ergebnisse zu erhalten
