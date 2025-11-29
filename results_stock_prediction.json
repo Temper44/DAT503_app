@@ -36,12 +36,6 @@
         "Signal":"UP"
     },
     {
-        "Ticker":"SAP",
-        "Date":1764201600000,
-        "ProbUp":0.6216029137,
-        "Signal":"UP"
-    },
-    {
         "Ticker":"TMUS",
         "Date":1764288000000,
         "ProbUp":0.6104950422,
@@ -93,6 +87,12 @@
         "Ticker":"ASML",
         "Date":1764288000000,
         "ProbUp":0.5688533568,
+        "Signal":"UP"
+    },
+    {
+        "Ticker":"SAP",
+        "Date":1764288000000,
+        "ProbUp":0.5676225477,
         "Signal":"UP"
     },
     {
