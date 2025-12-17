@@ -6,15 +6,15 @@
         "Signal":"UP"
     },
     {
-        "Ticker":"SAP",
-        "Date":1765756800000,
-        "ProbUp":0.7006252973,
-        "Signal":"UP"
-    },
-    {
         "Ticker":"V",
         "Date":1765843200000,
         "ProbUp":0.6694310267,
+        "Signal":"UP"
+    },
+    {
+        "Ticker":"SAP",
+        "Date":1765843200000,
+        "ProbUp":0.6620359992,
         "Signal":"UP"
     },
     {
