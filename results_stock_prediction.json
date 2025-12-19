@@ -12,12 +12,6 @@
         "Signal":"UP"
     },
     {
-        "Ticker":"SAP",
-        "Date":1765929600000,
-        "ProbUp":0.6534335909,
-        "Signal":"UP"
-    },
-    {
         "Ticker":"MA",
         "Date":1766016000000,
         "ProbUp":0.6265026984,
@@ -27,6 +21,12 @@
         "Ticker":"GOOGL",
         "Date":1766016000000,
         "ProbUp":0.6197650171,
+        "Signal":"UP"
+    },
+    {
+        "Ticker":"SAP",
+        "Date":1766016000000,
+        "ProbUp":0.6134561188,
         "Signal":"UP"
     },
     {
