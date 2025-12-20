@@ -1,5 +1,11 @@
 [
     {
+        "Ticker":"SAP",
+        "Date":1766102400000,
+        "ProbUp":0.6360445141,
+        "Signal":"UP"
+    },
+    {
         "Ticker":"MA",
         "Date":1766102400000,
         "ProbUp":0.6303940135,
@@ -51,12 +57,6 @@
         "Ticker":"WFC",
         "Date":1766102400000,
         "ProbUp":0.5914978141,
-        "Signal":"UP"
-    },
-    {
-        "Ticker":"SAP",
-        "Date":1766016000000,
-        "ProbUp":0.5787474997,
         "Signal":"UP"
     },
     {
