@@ -1,218 +1,218 @@
 [
     {
         "Ticker":"V",
-        "Date":1766448000000,
-        "ProbUp":0.7744277722,
+        "Date":1766534400000,
+        "ProbUp":0.6241112244,
+        "Signal":"UP"
+    },
+    {
+        "Ticker":"AAPL",
+        "Date":1766534400000,
+        "ProbUp":0.6189737066,
+        "Signal":"UP"
+    },
+    {
+        "Ticker":"META",
+        "Date":1766534400000,
+        "ProbUp":0.6056954534,
+        "Signal":"UP"
+    },
+    {
+        "Ticker":"AMZN",
+        "Date":1766534400000,
+        "ProbUp":0.5968269217,
         "Signal":"UP"
     },
     {
         "Ticker":"CAT",
-        "Date":1766448000000,
-        "ProbUp":0.6264118326,
+        "Date":1766534400000,
+        "ProbUp":0.5883458249,
         "Signal":"UP"
     },
     {
-        "Ticker":"TMUS",
-        "Date":1766448000000,
-        "ProbUp":0.622730575,
+        "Ticker":"PG",
+        "Date":1766534400000,
+        "ProbUp":0.5878012836,
+        "Signal":"UP"
+    },
+    {
+        "Ticker":"KO",
+        "Date":1766534400000,
+        "ProbUp":0.5798092621,
+        "Signal":"UP"
+    },
+    {
+        "Ticker":"BAC",
+        "Date":1766534400000,
+        "ProbUp":0.5797588101,
+        "Signal":"UP"
+    },
+    {
+        "Ticker":"LLY",
+        "Date":1766534400000,
+        "ProbUp":0.5710027397,
+        "Signal":"UP"
+    },
+    {
+        "Ticker":"MSFT",
+        "Date":1766534400000,
+        "ProbUp":0.5639933027,
         "Signal":"UP"
     },
     {
         "Ticker":"SAP",
         "Date":1766448000000,
-        "ProbUp":0.5993540664,
+        "ProbUp":0.5623634937,
         "Signal":"UP"
     },
     {
-        "Ticker":"META",
-        "Date":1766448000000,
-        "ProbUp":0.5991929651,
+        "Ticker":"CSCO",
+        "Date":1766534400000,
+        "ProbUp":0.5581440486,
         "Signal":"UP"
     },
     {
-        "Ticker":"MSFT",
-        "Date":1766448000000,
-        "ProbUp":0.5987775453,
+        "Ticker":"TMUS",
+        "Date":1766534400000,
+        "ProbUp":0.5566056043,
         "Signal":"UP"
     },
     {
         "Ticker":"CVX",
-        "Date":1766448000000,
-        "ProbUp":0.5917413573,
-        "Signal":"UP"
-    },
-    {
-        "Ticker":"PG",
-        "Date":1766448000000,
-        "ProbUp":0.5871091764,
-        "Signal":"UP"
-    },
-    {
-        "Ticker":"AAPL",
-        "Date":1766448000000,
-        "ProbUp":0.586200737,
-        "Signal":"UP"
-    },
-    {
-        "Ticker":"MA",
-        "Date":1766448000000,
-        "ProbUp":0.5835092322,
-        "Signal":"UP"
-    },
-    {
-        "Ticker":"KO",
-        "Date":1766448000000,
-        "ProbUp":0.5819892468,
-        "Signal":"UP"
-    },
-    {
-        "Ticker":"AMD",
-        "Date":1766448000000,
-        "ProbUp":0.5819151763,
+        "Date":1766534400000,
+        "ProbUp":0.5549334538,
         "Signal":"UP"
     },
     {
         "Ticker":"UNH",
-        "Date":1766448000000,
-        "ProbUp":0.5805713668,
-        "Signal":"UP"
-    },
-    {
-        "Ticker":"JNJ",
-        "Date":1766448000000,
-        "ProbUp":0.5691462285,
-        "Signal":"UP"
-    },
-    {
-        "Ticker":"BAC",
-        "Date":1766448000000,
-        "ProbUp":0.5687652803,
-        "Signal":"UP"
-    },
-    {
-        "Ticker":"TSLA",
-        "Date":1766448000000,
-        "ProbUp":0.5683236784,
-        "Signal":"UP"
-    },
-    {
-        "Ticker":"NVS",
-        "Date":1766448000000,
-        "ProbUp":0.5657987576,
-        "Signal":"UP"
-    },
-    {
-        "Ticker":"LLY",
-        "Date":1766448000000,
-        "ProbUp":0.5585783348,
+        "Date":1766534400000,
+        "ProbUp":0.5541334161,
         "Signal":"UP"
     },
     {
         "Ticker":"BRK-A",
-        "Date":1766448000000,
-        "ProbUp":0.5542460967,
+        "Date":1766534400000,
+        "ProbUp":0.5504582595,
         "Signal":"UP"
     },
     {
-        "Ticker":"ASML",
-        "Date":1766448000000,
-        "ProbUp":0.5445052323,
-        "Signal":"DOWN"
-    },
-    {
-        "Ticker":"TSM",
-        "Date":1766448000000,
-        "ProbUp":0.5437131672,
-        "Signal":"DOWN"
-    },
-    {
-        "Ticker":"CSCO",
-        "Date":1766448000000,
-        "ProbUp":0.5436313689,
-        "Signal":"DOWN"
-    },
-    {
-        "Ticker":"PM",
-        "Date":1766448000000,
-        "ProbUp":0.5423732948,
+        "Ticker":"CRM",
+        "Date":1766534400000,
+        "ProbUp":0.5494221205,
         "Signal":"DOWN"
     },
     {
         "Ticker":"HD",
-        "Date":1766448000000,
-        "ProbUp":0.542336381,
-        "Signal":"DOWN"
-    },
-    {
-        "Ticker":"CRM",
-        "Date":1766448000000,
-        "ProbUp":0.5416714707,
+        "Date":1766534400000,
+        "ProbUp":0.5463018831,
         "Signal":"DOWN"
     },
     {
         "Ticker":"BABA",
-        "Date":1766448000000,
-        "ProbUp":0.541203054,
+        "Date":1766534400000,
+        "ProbUp":0.5454174897,
+        "Signal":"DOWN"
+    },
+    {
+        "Ticker":"MA",
+        "Date":1766534400000,
+        "ProbUp":0.5271876984,
         "Signal":"DOWN"
     },
     {
         "Ticker":"XOM",
-        "Date":1766448000000,
-        "ProbUp":0.5352582562,
+        "Date":1766534400000,
+        "ProbUp":0.513856707,
         "Signal":"DOWN"
     },
     {
-        "Ticker":"GOOGL",
-        "Date":1766448000000,
-        "ProbUp":0.5313833317,
-        "Signal":"DOWN"
-    },
-    {
-        "Ticker":"AMZN",
-        "Date":1766448000000,
-        "ProbUp":0.530142812,
-        "Signal":"DOWN"
-    },
-    {
-        "Ticker":"RTX",
-        "Date":1766448000000,
-        "ProbUp":0.5213696974,
-        "Signal":"DOWN"
-    },
-    {
-        "Ticker":"AZN",
-        "Date":1766448000000,
-        "ProbUp":0.5136371112,
-        "Signal":"DOWN"
-    },
-    {
-        "Ticker":"NVDA",
-        "Date":1766448000000,
-        "ProbUp":0.5089035076,
-        "Signal":"DOWN"
-    },
-    {
-        "Ticker":"WFC",
-        "Date":1766448000000,
-        "ProbUp":0.4844458831,
-        "Signal":"DOWN"
-    },
-    {
-        "Ticker":"NVO",
-        "Date":1766448000000,
-        "ProbUp":0.4819308367,
+        "Ticker":"TSLA",
+        "Date":1766534400000,
+        "ProbUp":0.5007745756,
         "Signal":"DOWN"
     },
     {
         "Ticker":"MS",
-        "Date":1766448000000,
-        "ProbUp":0.466246105,
+        "Date":1766534400000,
+        "ProbUp":0.4986918713,
+        "Signal":"DOWN"
+    },
+    {
+        "Ticker":"WFC",
+        "Date":1766534400000,
+        "ProbUp":0.4959678172,
+        "Signal":"DOWN"
+    },
+    {
+        "Ticker":"NVO",
+        "Date":1766534400000,
+        "ProbUp":0.4952841409,
+        "Signal":"DOWN"
+    },
+    {
+        "Ticker":"AZN",
+        "Date":1766534400000,
+        "ProbUp":0.4905237165,
+        "Signal":"DOWN"
+    },
+    {
+        "Ticker":"JNJ",
+        "Date":1766534400000,
+        "ProbUp":0.4891693939,
+        "Signal":"DOWN"
+    },
+    {
+        "Ticker":"GOOGL",
+        "Date":1766534400000,
+        "ProbUp":0.4778435036,
         "Signal":"DOWN"
     },
     {
         "Ticker":"TM",
-        "Date":1766448000000,
-        "ProbUp":0.4641812221,
+        "Date":1766534400000,
+        "ProbUp":0.471563278,
+        "Signal":"DOWN"
+    },
+    {
+        "Ticker":"RTX",
+        "Date":1766534400000,
+        "ProbUp":0.4638166399,
+        "Signal":"DOWN"
+    },
+    {
+        "Ticker":"NVS",
+        "Date":1766534400000,
+        "ProbUp":0.4546300949,
+        "Signal":"DOWN"
+    },
+    {
+        "Ticker":"PM",
+        "Date":1766534400000,
+        "ProbUp":0.4532932574,
+        "Signal":"DOWN"
+    },
+    {
+        "Ticker":"ASML",
+        "Date":1766534400000,
+        "ProbUp":0.4405404199,
+        "Signal":"DOWN"
+    },
+    {
+        "Ticker":"NVDA",
+        "Date":1766534400000,
+        "ProbUp":0.417018661,
+        "Signal":"DOWN"
+    },
+    {
+        "Ticker":"AMD",
+        "Date":1766534400000,
+        "ProbUp":0.4100576451,
+        "Signal":"DOWN"
+    },
+    {
+        "Ticker":"TSM",
+        "Date":1766534400000,
+        "ProbUp":0.398460433,
         "Signal":"DOWN"
     }
 ]
