@@ -18,15 +18,15 @@
         "Signal":"UP"
     },
     {
-        "Ticker":"BRK-A",
+        "Ticker":"SAP",
         "Date":1767312000000,
-        "ProbUp":0.6259857433,
+        "ProbUp":0.6277388905,
         "Signal":"UP"
     },
     {
-        "Ticker":"SAP",
-        "Date":1767052800000,
-        "ProbUp":0.6222216127,
+        "Ticker":"BRK-A",
+        "Date":1767312000000,
+        "ProbUp":0.6259857433,
         "Signal":"UP"
     },
     {
