@@ -1,11 +1,5 @@
 [
     {
-        "Ticker":"SAP",
-        "Date":1767312000000,
-        "ProbUp":0.656191769,
-        "Signal":"UP"
-    },
-    {
         "Ticker":"NVDA",
         "Date":1767571200000,
         "ProbUp":0.6524876205,
@@ -27,6 +21,12 @@
         "Ticker":"MA",
         "Date":1767571200000,
         "ProbUp":0.6307458398,
+        "Signal":"UP"
+    },
+    {
+        "Ticker":"SAP",
+        "Date":1767571200000,
+        "ProbUp":0.6204976241,
         "Signal":"UP"
     },
     {
