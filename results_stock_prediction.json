@@ -18,15 +18,15 @@
         "Signal":"UP"
     },
     {
-        "Ticker":"SAP",
-        "Date":1767571200000,
-        "ProbUp":0.6235497754,
-        "Signal":"UP"
-    },
-    {
         "Ticker":"MSFT",
         "Date":1767657600000,
         "ProbUp":0.6222102633,
+        "Signal":"UP"
+    },
+    {
+        "Ticker":"SAP",
+        "Date":1767657600000,
+        "ProbUp":0.613895665,
         "Signal":"UP"
     },
     {
