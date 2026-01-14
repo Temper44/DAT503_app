@@ -162,6 +162,12 @@
         "Signal":"DOWN"
     },
     {
+        "Ticker":"SAP",
+        "Date":1768262400000,
+        "ProbUp":0.5093965536,
+        "Signal":"DOWN"
+    },
+    {
         "Ticker":"LLY",
         "Date":1768262400000,
         "ProbUp":0.4926466003,
@@ -195,12 +201,6 @@
         "Ticker":"TSLA",
         "Date":1768262400000,
         "ProbUp":0.4801719975,
-        "Signal":"DOWN"
-    },
-    {
-        "Ticker":"SAP",
-        "Date":1768176000000,
-        "ProbUp":0.4724699974,
         "Signal":"DOWN"
     },
     {
