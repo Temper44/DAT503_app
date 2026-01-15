@@ -42,15 +42,15 @@
         "Signal":"UP"
     },
     {
-        "Ticker":"SAP",
-        "Date":1768262400000,
-        "ProbUp":0.5923041938,
-        "Signal":"UP"
-    },
-    {
         "Ticker":"CVX",
         "Date":1768348800000,
         "ProbUp":0.5662736717,
+        "Signal":"UP"
+    },
+    {
+        "Ticker":"SAP",
+        "Date":1768348800000,
+        "ProbUp":0.5648742183,
         "Signal":"UP"
     },
     {
