@@ -24,6 +24,12 @@
         "Signal":"UP"
     },
     {
+        "Ticker":"SAP",
+        "Date":1769126400000,
+        "ProbUp":0.6193787666,
+        "Signal":"UP"
+    },
+    {
         "Ticker":"PM",
         "Date":1769126400000,
         "ProbUp":0.6128168577,
@@ -111,12 +117,6 @@
         "Ticker":"AMZN",
         "Date":1769126400000,
         "ProbUp":0.5575984565,
-        "Signal":"UP"
-    },
-    {
-        "Ticker":"SAP",
-        "Date":1769040000000,
-        "ProbUp":0.5539317712,
         "Signal":"UP"
     },
     {
