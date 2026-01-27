@@ -30,12 +30,6 @@
         "Signal":"UP"
     },
     {
-        "Ticker":"SAP",
-        "Date":1769126400000,
-        "ProbUp":0.6187111528,
-        "Signal":"UP"
-    },
-    {
         "Ticker":"NVO",
         "Date":1769385600000,
         "ProbUp":0.6172613774,
@@ -51,6 +45,12 @@
         "Ticker":"KO",
         "Date":1769385600000,
         "ProbUp":0.597870367,
+        "Signal":"UP"
+    },
+    {
+        "Ticker":"SAP",
+        "Date":1769385600000,
+        "ProbUp":0.5917664049,
         "Signal":"UP"
     },
     {
