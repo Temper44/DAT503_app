@@ -24,6 +24,12 @@
         "Signal":"UP"
     },
     {
+        "Ticker":"SAP",
+        "Date":1769472000000,
+        "ProbUp":0.6414335666,
+        "Signal":"UP"
+    },
+    {
         "Ticker":"KO",
         "Date":1769472000000,
         "ProbUp":0.6111894154,
@@ -39,12 +45,6 @@
         "Ticker":"NVDA",
         "Date":1769472000000,
         "ProbUp":0.6044073302,
-        "Signal":"UP"
-    },
-    {
-        "Ticker":"SAP",
-        "Date":1769385600000,
-        "ProbUp":0.5990843279,
         "Signal":"UP"
     },
     {
