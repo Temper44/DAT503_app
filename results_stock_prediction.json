@@ -12,6 +12,12 @@
         "Signal":"UP"
     },
     {
+        "Ticker":"SAP",
+        "Date":1769731200000,
+        "ProbUp":0.6827001111,
+        "Signal":"UP"
+    },
+    {
         "Ticker":"BRK-A",
         "Date":1769731200000,
         "ProbUp":0.6514764821,
@@ -135,12 +141,6 @@
         "Ticker":"CRM",
         "Date":1769731200000,
         "ProbUp":0.5269518252,
-        "Signal":"DOWN"
-    },
-    {
-        "Ticker":"SAP",
-        "Date":1769644800000,
-        "ProbUp":0.5231086195,
         "Signal":"DOWN"
     },
     {
