@@ -1,0 +1,26 @@
+=== Klassifikationsreport (Test) ===
+              precision    recall  f1-score   support
+
+           0      0.459     0.271     0.340      3820
+           1      0.556     0.741     0.635      4706
+
+    accuracy                          0.530      8526
+   macro avg      0.507     0.506     0.488      8526
+weighted avg      0.512     0.530     0.503      8526
+
+ROC-AUC: 0.503
+Accuracy : 0.530
+Precision: 0.556
+Recall   : 0.741
+
+=== Feature Importances (globales Modell) ===
+Volatility         3581
+SMA_ratio          2814
+Momentum           2215
+OperatingMargin    1996
+DebtEquity         1967
+ProfitMargin       1848
+VolumeChange       1726
+Ticker_cat          933
+Leverage            908
+dtype: int32
